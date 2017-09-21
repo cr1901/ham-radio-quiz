@@ -1,0 +1,84 @@
+<!doctype html>
+<head>
+<script src="https://unpkg.com/parsimmon"></script>
+<script src="parse.js"></script>
+<script src="questions.js"></script>
+<script src="quiz.js"></script>
+<script src="handlers.js"></script>
+<style>
+input {
+    float: left;
+}
+
+label {
+    display: block;
+}
+
+body {
+    font-family: "Verdana";
+}
+
+#quiz {
+    float: right;
+    width: 75%;
+}
+
+/* #c_panel {
+    flex: 1 0 0;
+} */
+
+#c_panel {
+    width: 25%;
+    position: fixed;
+    float: left;
+}
+
+/* #quiz {
+    flex: 3 0 0;
+} */
+
+textarea {
+    width: 90%;
+    height: 100px;
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 1em;
+}
+
+
+</style>
+
+</head>
+
+<body>
+    <div id="c_panel">
+        <div id="controls">
+        <form id="q_range">
+            <p>To generate a quiz, enter question numbers or ranges (e.g. 1-10) separated
+            by commas. Default is use entire question pool.</p>
+            <input type="text" name="range_string">
+            <button type="submit">Generate!</button>
+            <textarea id="error" readonly=true>Error messages go here.</textarea>
+        </form>
+
+        <button type="button">View Stats</button>
+        <button type="submit" form="quiz">Done!</button>
+
+        <div>
+        </div>
+        </div>
+    </div>
+
+    <form id="quiz">
+    </form>
+
+    <script>
+        registerHandlers();
+        makeQuiz("");
+    </script>
+</body>
+
+
+</html>
